@@ -10,7 +10,12 @@ def main():
     
     while True:
         command = input ("Inserisci comando-> ")
-        value = float(input("Inserisci il tempo-> "))
+        if command == "exit":
+            s.sendall(f"{command}".encode())
+            messaggio = s.recv(BUFFER_SIZE)
+            print(messaggio.decode())
+            break
+        value = input("Inserisci il tempo-> ")
         s.sendall(f"{command}|{value}".encode())
         messaggio = s.recv(BUFFER_SIZE)
         print(messaggio.decode())
