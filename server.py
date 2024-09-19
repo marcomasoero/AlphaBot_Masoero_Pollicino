@@ -45,7 +45,7 @@ def main():
                 connection.sendall(f"comunicazione terminata".encode())
                 break
             if '|' not in mes_dec:
-                connection.sendall("il messagio deve essere {command}|{value}".encode())
+                connection.sendall("il messaggio deve essere {command}|{value}".encode())
             else:
                 command, value = mes_dec.split('|')
                 if controlla_numero(value) == False:
