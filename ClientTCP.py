@@ -1,0 +1,19 @@
+import socket
+SERVER_ADDRESS = ("192.168.1.128", 9090)
+BUFFER_SIZE = 4096
+
+def main():
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.connect(SERVER_ADDRESS)
+    messaggio = s.recv(BUFFER_SIZE)
+    print(messaggio.decode())
+    
+    while True:
+        command = input ("Inserisci comando-> ")
+        value = float(input("Inserisci il tempo-> "))
+        s.sendall(f"{command}|{value}".encode())
+        messaggio = s.recv(BUFFER_SIZE)
+        print(messaggio.decode())
+
+if __name__ == "__main__":
+    main()
