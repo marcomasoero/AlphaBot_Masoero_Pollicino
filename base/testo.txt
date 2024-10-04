@@ -1,0 +1,6 @@
+richieste(client->server)
+f"{command}|{value}"
+risposte(server->client)
+f"{status}|{phrase}"
+command = forward, backward, left, right
+status = ok, error
