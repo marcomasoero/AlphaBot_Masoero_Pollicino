@@ -63,12 +63,12 @@ class AlphaBot(object):
 		
 	def setMotor(self, left, right):
 		if((right >= 0) and (right <= 100)):
-			GPIO.output(self.IN1,GPIO.HIGH)
-			GPIO.output(self.IN2,GPIO.LOW)
+			GPIO.output(self.IN2,GPIO.HIGH)
+			GPIO.output(self.IN1,GPIO.LOW)
 			self.PWMA.ChangeDutyCycle(right)
 		elif((right < 0) and (right >= -100)):
-			GPIO.output(self.IN1,GPIO.LOW)
-			GPIO.output(self.IN2,GPIO.HIGH)
+			GPIO.output(self.IN2,GPIO.LOW)
+			GPIO.output(self.IN1,GPIO.HIGH)
 			self.PWMA.ChangeDutyCycle(0 - right)
 		if((left >= 0) and (left <= 100)):
 			GPIO.output(self.IN3,GPIO.HIGH)
