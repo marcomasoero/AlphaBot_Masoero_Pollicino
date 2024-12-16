@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WASD Buttons</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            background-image: url('./images.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            display: grid;
+            grid-template-areas: 
+                ". W ."
+                "A S D"
+                ". STOP .";
+            gap: 10px;
+        }
+        input {
+            width: 60px;
+            height: 60px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        button:active {
+            background-color: #003d80;
+        }
+        .W { grid-area: W; }
+        .A { grid-area: A; }
+        .S { grid-area: S; }
+        .D { grid-area: D; }
+        .STOP { grid-area: STOP; }
+    </style>
+</head>
+<body>
+    <form method="post"  class="container">
+        <input type="submit" class="W" onclick="logDirection('W', 'Up')" value="▲" name="movimento"/>
+        <input type="submit" class="A" onclick="logDirection('A', 'Left')" value="◄" name="movimento"/>
+        <input type="submit" class="S" onclick="logDirection('S', 'Down')" value="▼" name="movimento"/>
+        <input type="submit" class="D" onclick="logDirection('D', 'Right')" value="►" name="movimento"/>
+        <input type="submit" class="STOP" onclick="logDirection('STOP', 'stop')" value="■" name="movimento"/>
+    </div>
+
+    <script>
+        function logDirection(key, direction) {
+            console.log(`Key: ${key}, Direction: ${direction}`);
+        }
+    </script>
+</body>
+</html>
