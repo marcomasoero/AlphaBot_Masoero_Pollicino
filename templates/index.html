@@ -14,7 +14,7 @@
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
-            background-image: url('./images.jpeg');
+            background-image: url('../static/images/images.jpeg');
             background-size: cover;
             background-position: center;
         }
@@ -23,7 +23,7 @@
             grid-template-areas: 
                 ". W ."
                 "A S D"
-                ". STOP .";
+                "STANDBY STOP EXIT";
             gap: 10px;
         }
         input {
@@ -49,6 +49,8 @@
         .S { grid-area: S; }
         .D { grid-area: D; }
         .STOP { grid-area: STOP; }
+        .EXIT { grid-area: EXIT; }
+        .STANDBY {grid-area: STANDBY; }
     </style>
 </head>
 <body>
@@ -58,8 +60,9 @@
         <input type="submit" class="S" onclick="logDirection('S', 'Down')" value="▼" name="movimento"/>
         <input type="submit" class="D" onclick="logDirection('D', 'Right')" value="►" name="movimento"/>
         <input type="submit" class="STOP" onclick="logDirection('STOP', 'stop')" value="■" name="movimento"/>
-    </div>
-
+        <input type="submit" class="EXIT" onclick="logDirection('EXIT', 'exit')" value="Ð" name="movimento"/>
+        <input type="submit" class="STANDBY" onclick="logDirection('STANDBY', 'standby')" value="⌂" name="movimento"/>
+    </form>
     <script>
         function logDirection(key, direction) {
             console.log(`Key: ${key}, Direction: ${direction}`);
